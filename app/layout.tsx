@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: "/icon-192.png",
-    shortcut: "/icon-192.png",
-    apple: "/icon-192.png",
+    icon: "/apple-icon.png",
+    shortcut: "/apple-icon.png",
+    apple: "/apple-icon.png",
   },
   appleWebApp: {
     capable: true,
@@ -52,7 +52,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#6366f1" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <link rel="apple-touch-icon" href="/icon-192.png" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
       </head>
       <body className={`font-sans ${inter.variable} ${robotoMono.variable} bg-background min-h-screen`}>
         <PWAProvider>

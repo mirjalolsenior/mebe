@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Navigation } from "@/components/navigation"
 import { Header } from "@/components/header"
 import { TovarlarModule } from "@/components/tovarlar/tovarlar-module"
@@ -11,30 +11,11 @@ import { ArxivModule } from "@/components/arxiv/arxiv-module"
 import { AdminModule } from "@/components/admin/admin-module"
 import { HisobotlarModule } from "@/components/hisobotlar/hisobotlar-module"
 import { NotificationManager } from "@/components/pwa/notification-manager"
-import { usePWA } from "@/components/pwa/pwa-provider"
-import { useNotificationMonitor } from "@/lib/hooks/useNotificationMonitor"
+
+// Notification setup is now handled in NotificationManager component only
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("tovarlar")
-  const { sendNotification, notificationPermission } = usePWA()
-
-  // Now only initialized when user enables notifications
-  useNotificationMonitor({
-    checkInterval: 5 * 60 * 1000, // Check every 5 minutes
-    lowStockThreshold: 10, // Alert when stock < 10
-  })
-
-  useEffect(() => {
-    // Example: Send welcome notification when app loads
-    if (notificationPermission === "granted") {
-      setTimeout(() => {
-        sendNotification(
-          "Sherdor Mebel tizimiga xush kelibsiz!",
-          "Biznes boshqaruv tizimi tayyor. Barcha modullar faol.",
-        )
-      }, 2000)
-    }
-  }, [notificationPermission, sendNotification])
 
   const getPageTitle = (tab: string) => {
     switch (tab) {
